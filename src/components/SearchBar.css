@@ -1,0 +1,19 @@
+.searchBar {
+    margin: 20px;
+}
+
+.boton {
+    height: 25px;
+    width: 70px;
+    margin-left: 10px;
+    background-color: #89C4E1;
+    color: #1A0000;
+    border-radius: 5px;
+    border: 1px solid rgb(165, 165, 165);
+}
+
+.barraBusqueda {
+    height: 25px;
+    border-radius: 4px;
+    border: 1px solid black;
+}

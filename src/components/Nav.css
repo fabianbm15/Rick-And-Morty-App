@@ -1,0 +1,18 @@
+.navBar {
+    display: flex;
+    background-color: #F5EDCE;
+    justify-content: flex-end;
+    border-radius: 5px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.boton {
+    height: 25px;
+    width: 70px;
+    margin-left: 10px;
+    background-color: #89C4E1;
+    color: #1A0000;
+    border-radius: 5px;
+    border: 1px solid rgb(165, 165, 165);
+}

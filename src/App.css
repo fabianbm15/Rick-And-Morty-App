@@ -1,3 +1,7 @@
 .App {
    text-align: center;
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-image: url('./bg.png'); 
 }

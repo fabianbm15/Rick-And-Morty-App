@@ -1,8 +1,49 @@
-.card{
+.card {
+    position: relative;
     border: 8px solid rgb(182, 182, 182);
-    width: 22%;
+    width: 25%;
+    border-radius: 10px;
+    border-style: inset;
+    background-color: white;
 }
 
-img{
+
+
+.imagen {
+    position: relative;
     width: 100%;
 }
+
+.botonCerrar {
+    background-color: rgb(255, 0, 0);
+    border-radius: 4px;
+    border: 1px solid rgb(77, 76, 76);
+    position: absolute;
+    margin: 4px;
+    color: #F5EDCE;
+    top: 0;
+    right: 0;
+}
+
+.nombre {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    font-size: 20px;
+    border-radius: 4px;
+    color: #F5EDCE;
+    background-color: rgba(0, 0, 0, 0.554);
+    padding: 2%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+}
+
+.especieGenero {
+    display: flex;
+    justify-content: space-around;
+    font-size: 9px;
+}
+
+
+

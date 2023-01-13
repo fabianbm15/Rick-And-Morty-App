@@ -1,5 +1,7 @@
 .cards {
     display: flex;
     padding: 15px;
-    border: 8px solid rgb(190, 190, 190)
+    /* border: 8px solid rgb(190, 190, 190);*/
+    justify-content: space-around;
+    margin: 3%;
 }
