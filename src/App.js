@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import About from "./components/About";
 import Detail from "./components/Detail";
 import Login from "./components/Login";
+import Error404 from "./components/Error404";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -58,6 +59,8 @@ function App() {
         ></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/detail/:detailId" element={<Detail />}></Route>
+
+        <Route path="*" element={<Error404 />}></Route>
       </Routes>
     </div>
   );

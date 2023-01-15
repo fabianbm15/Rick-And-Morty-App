@@ -1,0 +1,52 @@
+.divError {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(240, 248, 255, 0.894);
+    width: 600px;
+    padding: 20px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.ops {
+    font-size: 50px;
+    margin-top: -2%;
+}
+
+.error {
+    font-size: 100px;
+    margin-top: -10%;
+    color: rgb(204, 50, 50);
+}
+
+.e404 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 90px;
+    margin-top: -14%;
+}
+
+.caraError0 {
+    width: 100px;
+    height: 100px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.mensajeError {
+    margin-top: -11%;
+    color: rgb(204, 50, 50);
+}
+
+
+
+
+
+
+
+
+
