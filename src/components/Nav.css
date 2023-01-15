@@ -1,6 +1,6 @@
 .navBar {
     display: flex;
-    background-color: #F5EDCE;
+    background-color: aliceblue;
     justify-content: flex-end;
     border-radius: 5px;
     justify-content: space-around;

@@ -1,11 +1,11 @@
-import './App.css'
-import Card from './components/Card.jsx'
-import Cards from './components/Cards.jsx'
-import SearchBar from './components/SearchBar.jsx'
-import characters, { Rick } from './data.js'
-import { useState } from 'react'
-import stylesCard from './components/Card.module.css'
-import Nav from './components/Nav'
+import "./App.css";
+import Cards from "./components/Cards.jsx";
+import { useState } from "react";
+import Nav from "./components/Nav";
+import { Routes, Route } from "react-router-dom";
+import About from "./components/About";
+import Detail from "./components/Detail";
+import Login from "./components/Login";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -27,34 +27,40 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {
-          let exist = characters.find((e) => e.id === data.id)
+          let exist = characters.find((e) => e.id === data.id);
           if (exist) {
-            alert('Ese personaje ya existe!')
+            alert("Ese personaje ya existe!");
           } else {
             setCharacters((oldChars) => [...oldChars, data]);
           }
         } else {
-          window.alert('No hay personajes con ese ID');
+          window.alert("No hay personajes con ese ID");
         }
       });
   }
 
   function onClose(id) {
     setCharacters((data) => {
-      return data.filter((e) => e.id !== id)
-    })
+      return data.filter((e) => e.id !== id);
+    });
   }
 
   return (
-    <div className='App' style={{ padding: '25px' }}>
+    <div className="App" style={{ padding: "25px" }}>
       <div>
         <Nav onSearch={onSearch} />
-        <div>
-          <Cards characters={characters} onClose={onClose} />
-        </div>
       </div>
+      <Routes>
+        <Route path="/" element={<Login />}></Route>
+        <Route
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose} />}
+        ></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/detail/:detailId" element={<Detail />}></Route>
+      </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

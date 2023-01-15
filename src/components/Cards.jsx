@@ -1,19 +1,22 @@
-import Card from './Card';
-import './Cards.css';
+import Card from "./Card";
+import "./Cards.css";
 
 export default function Cards(props) {
-   const { characters } = props;
-   return (<div className='cards'>
+  const { characters } = props;
+  return (
+    <div className="cards">
       {characters.map(function (element) {
-         return (
-            <Card 
-               name={element.name}
-               species={element.species}
-               gender={element.gender}
-               image={element.image}
-               onClose={() => props.onClose(element.id)}
-            />
-         )
+        return (
+          <Card
+            id={element.id}
+            name={element.name}
+            species={element.species}
+            gender={element.gender}
+            image={element.image}
+            onClose={() => props.onClose(element.id)}
+          />
+        );
       })}
-   </div>);
+    </div>
+  );
 }
