@@ -1,15 +1,16 @@
 import "./App.css";
-import Cards from "./components/Cards.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import Cards from "./components/Cards";
 import Nav from "./components/Nav";
-import { Routes, Route } from "react-router-dom";
 import About from "./components/About";
 import Detail from "./components/Detail";
-import Login from "./components/Login";
+import Form from "./components/Form";
 import Error404 from "./components/Error404";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const location = useLocation();
 
   // const onSearch = (element) => {
   //   setCharacters([
@@ -22,6 +23,26 @@ function App() {
   //     // }
   //   ])
   // }
+
+  const navigate = useNavigate();
+  const [access, setAccess] = useState(false);
+  const username = "33b@soyhenry.com";
+  const password = "@Model101";
+
+  function login(userData) {
+    if (userData.password === password && userData.username === username) {
+      setAccess(true);
+      navigate("/home");
+      alert("Bienvenidos a mi app");
+    } else {
+      alert("Username o password incorrectos");
+    }
+  }
+
+  function logout(userData) {
+    setAccess(false);
+    navigate("/");
+  }
 
   function onSearch(character) {
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
@@ -46,13 +67,19 @@ function App() {
     });
   }
 
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
+
   return (
     <div className="App" style={{ padding: "25px" }}>
       <div>
-        <Nav onSearch={onSearch} />
+        {location.pathname === "/" ? null : (
+          <Nav onSearch={onSearch} logout={logout} />
+        )}
       </div>
       <Routes>
-        <Route path="/" element={<Login />}></Route>
+        <Route path="/" element={<Form login={login} />}></Route>
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}

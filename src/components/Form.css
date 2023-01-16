@@ -1,0 +1,39 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    background-color: aliceblue;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 3%;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.password {
+    margin-top: 30px;
+}
+
+.loginButton {
+    margin-top: 25px;
+    padding: 2%;
+    padding-left: 4%;
+    padding-right: 4%;
+    border-radius: 5px;
+    background-color: #89C4E1;
+    border: 1px solid rgb(193, 192, 192);
+}
+
+.warning {
+    color: rgb(223, 0, 0);
+}
+
+.danger {
+    color: rgb(223, 0, 0);
+    font-size: 12px;
+}
+
+
+

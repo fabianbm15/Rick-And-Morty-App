@@ -7,8 +7,6 @@
     background-color: white;
 }
 
-
-
 .imagen {
     position: relative;
     width: 100%;
@@ -32,9 +30,9 @@
     font-size: 20px;
     border-radius: 4px;
     color: #F5EDCE;
-    background-color: rgba(0, 0, 0, 0.554);
+    background-color: rgba(0, 0, 0, 0.841);
     padding: 2%;
-    height: 5%;
+    height: 8%;
     display: flex;
     align-items: center;
 }
@@ -42,7 +40,13 @@
 .especieGenero {
     display: flex;
     justify-content: space-around;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: normal;
     font-size: 9px;
+    margin-left: 2%;
+    margin-right: 2%;
+    align-items: center;
+    margin-top: -2%;
 }
 
 

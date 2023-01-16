@@ -16,3 +16,13 @@
     border-radius: 5px;
     border: 1px solid rgb(165, 165, 165);
 }
+
+.botonLogOut {
+    height: 25px;
+    width: 70px;
+    margin-left: 10px;
+    background-color: #be0202;
+    color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid rgb(165, 165, 165);
+}
