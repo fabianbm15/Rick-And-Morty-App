@@ -9,23 +9,23 @@ export default function Card(props) {
   const dispatch = useDispatch();
   const myFavorites = useSelector((s) => s.myFavorites);
 
-  function handleFavorite(id) {
+  function handleFavorite(ch) {
     if (isFav) {
       setIsFav(false);
-      dispatch(deleteFavorite(id));
+      dispatch(deleteFavorite(ch.id));
     } else {
       setIsFav(true);
-      dispatch(addFavorite(id));
+      dispatch(addFavorite(ch));
     }
   }
 
   useEffect(() => {
-    myFavorites.forEach((id) => {
-      if (id === props.id) {
+    myFavorites.forEach((ch) => {
+      if (ch.id === props.id) {
         setIsFav(true);
       }
     });
-  }, []);
+  }, [myFavorites, props.id]);
   // }, [myFavorites]);
 
   return (
@@ -35,14 +35,14 @@ export default function Card(props) {
       {isFav ? (
         <button
           className="buttonFavoriteOn"
-          onClick={() => handleFavorite(props.id)}
+          onClick={() => handleFavorite(props)}
         >
           ❤️
         </button>
       ) : (
         <button
           className="buttonFavoriteOff"
-          onClick={() => handleFavorite(props.id)}
+          onClick={() => handleFavorite(props)}
         >
           🤍
         </button>
