@@ -22,8 +22,9 @@
     padding-left: 4%;
     padding-right: 4%;
     border-radius: 5px;
-    background-color: #89C4E1;
+    background-color: #003f5c;
     border: 1px solid rgb(193, 192, 192);
+    color: white;
 }
 
 .warning {

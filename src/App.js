@@ -7,6 +7,8 @@ import About from "./components/About";
 import Detail from "./components/Detail";
 import Form from "./components/Form";
 import Error404 from "./components/Error404";
+import Favorites from "./components/Favorites";
+import Portfolio from "./components/Portfolio";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -33,7 +35,6 @@ function App() {
     if (userData.password === password && userData.username === username) {
       setAccess(true);
       navigate("/home");
-      alert("Bienvenidos a mi app");
     } else {
       alert("Username o password incorrectos");
     }
@@ -86,6 +87,11 @@ function App() {
         ></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/detail/:detailId" element={<Detail />}></Route>
+        <Route
+          path="/favorites"
+          element={<Favorites characters={characters} onClose={onClose} />}
+        ></Route>
+        <Route path="/portfolio" element={<Portfolio />}></Route>
 
         <Route path="*" element={<Error404 />}></Route>
       </Routes>

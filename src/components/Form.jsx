@@ -1,5 +1,5 @@
 import "./Form.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import validate from "./validate";
 
 export default function Form(props) {

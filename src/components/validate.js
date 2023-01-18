@@ -1,6 +1,6 @@
 const regexUsername =
   /^(?=.{1,35})([a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)$/;
-const regexPassword = /^(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,10})/;
+const regexPassword = /^(?=.*[0-9])(?=.*[!@#%&])(?=.{6,10})/;
 
 export default function validate(inputs) {
   const errors = {};

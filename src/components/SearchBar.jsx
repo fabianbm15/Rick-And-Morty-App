@@ -24,10 +24,13 @@ export default function SearchBar(props) {
         onChange={(e) => handleInput(e)}
         value={character}
       />
-      <button className="boton" onClick={() => props.onSearch(character)}>
+      <button
+        className="botonSearchBar"
+        onClick={() => props.onSearch(character)}
+      >
         Agregar
       </button>
-      <button className="boton" onClick={randomCharacter}>
+      <button className="botonSearchBar" onClick={randomCharacter}>
         Random
       </button>
     </div>

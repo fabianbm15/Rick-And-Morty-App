@@ -2,14 +2,14 @@
     margin: 20px;
 }
 
-.boton {
+.botonSearchBar {
     height: 25px;
-    width: 70px;
+    width: auto;
     margin-left: 10px;
-    background-color: #89C4E1;
-    color: #1A0000;
+    background-color: #003f5c;
+    color: #ffffff;
     border-radius: 5px;
-    border: 1px solid rgb(165, 165, 165);
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .barraBusqueda {
