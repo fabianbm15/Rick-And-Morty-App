@@ -11,16 +11,16 @@ export default function Nav(props) {
         <button className="boton">Home</button>
       </Link>
 
-      <Link to={"/about"}>
-        <button className="boton">About</button>
-      </Link>
-
       <Link to={"/favorites"}>
         <button className="boton">My Favorites</button>
       </Link>
 
       <Link to={"/portfolio"}>
         <button className="boton">Portfolio</button>
+      </Link>
+
+      <Link to={"/about"}>
+        <button className="boton">About</button>
       </Link>
 
       <SearchBar onSearch={props.onSearch} />
