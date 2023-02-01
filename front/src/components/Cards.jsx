@@ -5,7 +5,7 @@ export default function Cards(props) {
   const { characters } = props;
   return (
     <div className="cards">
-      {characters.map(function (element, key) {
+      {characters.map(function (element) {
         return (
           <Card
             key={element.id}
