@@ -3,6 +3,7 @@ import { ADD_FAVORITES, DELETE_FAVORITES, FILTER, ORDER, RESET } from "./types";
 import axios from "axios";
 
 export const addFavorite = function (ch) {
+  /*
   return function (dispatch) {
     axios
       .post(`http://localhost:3001/rickandmorty/fav`, ch)
@@ -14,9 +15,27 @@ export const addFavorite = function (ch) {
         });
       });
   };
+  */
+  return async function (dispatch) {
+    try {
+      const response = await axios.post(
+        `http://localhost:3001/rickandmorty/fav`,
+        ch
+      );
+      const data = response.data;
+
+      dispatch({
+        type: ADD_FAVORITES,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 };
 
 export const deleteFavorite = function (id) {
+  /*
   return function (dispatch) {
     axios
       .delete(`http://localhost:3001/rickandmorty/fav/${id}`)
@@ -27,6 +46,18 @@ export const deleteFavorite = function (id) {
           payload: id,
         });
       });
+  };
+  */
+  return async function (dispatch) {
+    try {
+      await axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`);
+      dispatch({
+        type: DELETE_FAVORITES,
+        payload: id,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 

@@ -9,6 +9,7 @@ import Form from "./components/Form";
 import Error404 from "./components/Error404";
 import Favorites from "./components/Favorites";
 import Portfolio from "./components/Portfolio";
+import axios from "axios";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -45,6 +46,7 @@ function App() {
     navigate("/");
   }
 
+  /*
   function onSearch(character) {
     fetch(`http://localhost:3001/rickandmorty/character/${character}`)
       // fetch(`https://rickandmortyapi.com/api/character/${character}`)
@@ -63,16 +65,33 @@ function App() {
         }
       });
   }
+  */
+
+  async function onSearch(character) {
+    const response = await axios(
+      `http://localhost:3001/rickandmorty/character/${character}`
+    );
+    const data = response.data;
+    if (data.name) {
+      let exist = characters.find((e) => e.id === data.id);
+      if (exist) {
+        alert("Ese personaje ya existe!");
+      } else {
+        setCharacters((oldChars) => [...oldChars, data]);
+      }
+    } else {
+      window.alert("No hay personajes con ese ID");
+    }
+  }
 
   function onClose(id) {
     setCharacters((data) => {
       return data.filter((e) => e.id !== id);
     });
   }
-
   useEffect(() => {
     !access && navigate("/");
-  }, [access]);
+  }, [access, navigate]);
 
   return (
     <div className="App" style={{ padding: "25px" }}>

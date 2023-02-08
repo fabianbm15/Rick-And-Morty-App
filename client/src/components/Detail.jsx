@@ -3,11 +3,12 @@ import "./Detail.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 export default function Detail() {
   const { detailId } = useParams();
   const [character, setCharacter] = useState({});
-
+  /*
   useEffect(() => {
     fetch(`http://localhost:3001/rickandmorty/detail/${detailId}`)
       .then((response) => response.json())
@@ -21,6 +22,27 @@ export default function Detail() {
       .catch((err) => {
         window.alert("No hay personajes con ese ID");
       });
+    return setCharacter({});
+  }, [detailId]);
+*/
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios(
+          `http://localhost:3001/rickandmorty/detail/${detailId}`
+        );
+        const char = response.data;
+        if (char.name) {
+          setCharacter(char);
+        } else {
+          window.alert("No hay personajes con ese ID");
+        }
+      } catch (error) {
+        window.alert("No hay personajes con ese ID");
+      }
+    };
+    fetchData();
     return setCharacter({});
   }, [detailId]);
 

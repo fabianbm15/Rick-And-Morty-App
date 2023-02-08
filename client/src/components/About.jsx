@@ -2,7 +2,7 @@ import React from "react";
 import "./About.css";
 import personalImage from "./../about.png";
 
-export default function () {
+export default function About() {
   return (
     <div className="aboutPrincipal">
       <img className="personalImage" src={personalImage} alt={personalImage} />

@@ -1,49 +1,85 @@
 const axios = require("axios");
 var fav = [];
 
-const getCharacterId = function (req, res) {
+const getCharacterId = async function (req, res) {
   const { id } = req.params;
-  axios(`https://rickandmortyapi.com/api/character/${id}`)
-    .then((data) => data.data)
-    .then((data) => {
-      const character = {
-        id: data.id,
-        image: data.image,
-        name: data.name,
-        gender: data.gender,
-        species: data.species,
-      };
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(JSON.stringify(character));
-    })
-    .catch((error) => {
-      res.writeHead(500, { "Content-Type": "text/plain" });
-      res.end("not found character");
-      // res.end(error.message);
-    });
+  // axios(`https://rickandmortyapi.com/api/character/${id}`)
+  //   .then((data) => data.data)
+  //   .then((data) => {
+  //     const character = {
+  //       id: data.id,
+  //       image: data.image,
+  //       name: data.name,
+  //       gender: data.gender,
+  //       species: data.species,
+  //     };
+  //     res.writeHead(200, { "Content-Type": "application/json" });
+  //     res.end(JSON.stringify(character));
+  //   })
+  //   .catch((error) => {
+  //     res.writeHead(500, { "Content-Type": "text/plain" });
+  //     res.end("not found character");
+  //     // res.end(error.message);
+  //   });
+  try {
+    const { data } = await axios(
+      `https://rickandmortyapi.com/api/character/${id}`
+    );
+    const character = {
+      id: data.id,
+      image: data.image,
+      name: data.name,
+      gender: data.gender,
+      species: data.species,
+    };
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(character));
+  } catch (error) {
+    res.writeHead(500, { "Content-Type": "text/plain" });
+    res.end("not found character");
+  }
 };
 
-const getDetailId = function (req, res) {
+const getDetailId = async function (req, res) {
   const { detailId } = req.params;
-  axios(`https://rickandmortyapi.com/api/character/${detailId}`)
-    .then((data) => data.data)
-    .then((data) => {
-      const char = {
-        id: data.id,
-        image: data.image,
-        name: data.name,
-        gender: data.gender,
-        status: data.status,
-        origin: data.origin,
-        species: data.species,
-      };
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(JSON.stringify(char));
-    })
-    .catch((error) => {
-      res.writeHead(500, { "Content-Type": "text/plain" });
-      res.end(error.message);
-    });
+  // axios(`https://rickandmortyapi.com/api/character/${detailId}`)
+  //   .then((data) => data.data)
+  //   .then((data) => {
+  //     const char = {
+  //       id: data.id,
+  //       image: data.image,
+  //       name: data.name,
+  //       gender: data.gender,
+  //       status: data.status,
+  //       origin: data.origin,
+  //       species: data.species,
+  //     };
+  //     res.writeHead(200, { "Content-Type": "application/json" });
+  //     res.end(JSON.stringify(char));
+  //   })
+  //   .catch((error) => {
+  //     res.writeHead(500, { "Content-Type": "text/plain" });
+  //     res.end(error.message);
+  //   });
+  try {
+    const { data } = await axios(
+      `https://rickandmortyapi.com/api/character/${detailId}`
+    );
+    const char = {
+      id: data.id,
+      image: data.image,
+      name: data.name,
+      gender: data.gender,
+      status: data.status,
+      origin: data.origin,
+      species: data.species,
+    };
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(char));
+  } catch (error) {
+    res.writeHead(500, { "Content-Type": "text/plain" });
+    res.end("not found character");
+  }
 };
 
 const getFav = function (req, res) {
