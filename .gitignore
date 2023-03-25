@@ -4,6 +4,7 @@
 .pnp.js
 api/node_modules
 api/package-lock.json
+client/.env
 
 # testing
 /coverage
