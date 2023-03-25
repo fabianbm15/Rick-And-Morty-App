@@ -32,40 +32,19 @@ const getCharacterId = async function (req, res) {
       gender: data.gender,
       species: data.species,
     };
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(character));
+    res.status(200).json(character);
   } catch (error) {
-    res.writeHead(500, { "Content-Type": "text/plain" });
-    res.end("not found character");
+    res.status(500).end({ error: "not found character" });
   }
 };
 
 const getDetailId = async function (req, res) {
   const { detailId } = req.params;
-  // axios(`https://rickandmortyapi.com/api/character/${detailId}`)
-  //   .then((data) => data.data)
-  //   .then((data) => {
-  //     const char = {
-  //       id: data.id,
-  //       image: data.image,
-  //       name: data.name,
-  //       gender: data.gender,
-  //       status: data.status,
-  //       origin: data.origin,
-  //       species: data.species,
-  //     };
-  //     res.writeHead(200, { "Content-Type": "application/json" });
-  //     res.end(JSON.stringify(char));
-  //   })
-  //   .catch((error) => {
-  //     res.writeHead(500, { "Content-Type": "text/plain" });
-  //     res.end(error.message);
-  //   });
   try {
     const { data } = await axios(
       `https://rickandmortyapi.com/api/character/${detailId}`
     );
-    const char = {
+    const character = {
       id: data.id,
       image: data.image,
       name: data.name,
@@ -74,11 +53,9 @@ const getDetailId = async function (req, res) {
       origin: data.origin,
       species: data.species,
     };
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(char));
+    res.status(200).json(character);
   } catch (error) {
-    res.writeHead(500, { "Content-Type": "text/plain" });
-    res.end("not found character");
+    res.status(500).end({ error: "not found character" });
   }
 };
 

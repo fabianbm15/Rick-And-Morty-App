@@ -12,41 +12,41 @@ import Portfolio from "./components/Portfolio";
 import axios from "axios";
 
 function App() {
-  const [characters, setCharacters] = useState([]);
-  const location = useLocation();
+   const [characters, setCharacters] = useState([]);
+   const location = useLocation();
 
-  // const onSearch = (element) => {
-  //   setCharacters([
-  //     ...characters,
-  //     // {
-  //     //   name: 'Morty Smith',
-  //     //   species: 'Human',
-  //     //   gender: 'Male',
-  //     //   image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
-  //     // }
-  //   ])
-  // }
+   // const onSearch = (element) => {
+   //   setCharacters([
+   //     ...characters,
+   //     // {
+   //     //   name: 'Morty Smith',
+   //     //   species: 'Human',
+   //     //   gender: 'Male',
+   //     //   image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
+   //     // }
+   //   ])
+   // }
 
-  const navigate = useNavigate();
-  const [access, setAccess] = useState(false);
-  const username = "33b@soyhenry.com";
-  const password = "@Model101";
+   const navigate = useNavigate();
+   const [access, setAccess] = useState(false);
+   const username = process.env.REACT_APP_USERNAME;
+   const password = process.env.REACT_APP_PASSWORD;
 
-  function login(userData) {
-    if (userData.password === password && userData.username === username) {
-      setAccess(true);
-      navigate("/home");
-    } else {
-      alert("Username o password incorrectos");
-    }
-  }
+   function login(userData) {
+      if (userData.password === password && userData.username === username) {
+         setAccess(true);
+         navigate("/home");
+      } else {
+         alert("Username o password incorrectos");
+      }
+   }
 
-  function logout(userData) {
-    setAccess(false);
-    navigate("/");
-  }
+   function logout(userData) {
+      setAccess(false);
+      navigate("/");
+   }
 
-  /*
+   /*
   function onSearch(character) {
     fetch(`http://localhost:3001/rickandmorty/character/${character}`)
       // fetch(`https://rickandmortyapi.com/api/character/${character}`)
@@ -67,57 +67,45 @@ function App() {
   }
   */
 
-  async function onSearch(character) {
-    const response = await axios(
-      `http://localhost:3001/rickandmorty/character/${character}`
-    );
-    const data = response.data;
-    if (data.name) {
-      let exist = characters.find((e) => e.id === data.id);
-      if (exist) {
-        alert("Ese personaje ya existe!");
+   async function onSearch(character) {
+      const response = await axios(`http://localhost:3001/rickandmorty/character/${character}`);
+      const data = response.data;
+      if (data.name) {
+         let exist = characters.find((e) => e.id === data.id);
+         if (exist) {
+            alert("Ese personaje ya existe!");
+         } else {
+            setCharacters((oldChars) => [...oldChars, data]);
+         }
       } else {
-        setCharacters((oldChars) => [...oldChars, data]);
+         window.alert("No hay personajes con ese ID");
       }
-    } else {
-      window.alert("No hay personajes con ese ID");
-    }
-  }
+   }
 
-  function onClose(id) {
-    setCharacters((data) => {
-      return data.filter((e) => e.id !== id);
-    });
-  }
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access, navigate]);
+   function onClose(id) {
+      setCharacters((data) => {
+         return data.filter((e) => e.id !== id);
+      });
+   }
+   useEffect(() => {
+      !access && navigate("/");
+   }, [access, navigate]);
 
-  return (
-    <div className="App" style={{ padding: "25px" }}>
-      <div>
-        {location.pathname === "/" ? null : (
-          <Nav onSearch={onSearch} logout={logout} />
-        )}
+   return (
+      <div className="App" style={{ padding: "25px" }}>
+         <div>{location.pathname === "/" ? null : <Nav onSearch={onSearch} logout={logout} />}</div>
+         <Routes>
+            <Route path="/" element={<Form login={login} />}></Route>
+            <Route path="/home" element={<Cards characters={characters} onClose={onClose} />}></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/detail/:detailId" element={<Detail />}></Route>
+            <Route path="/favorites" element={<Favorites characters={characters} onClose={onClose} />}></Route>
+            <Route path="/portfolio" element={<Portfolio />}></Route>
+
+            <Route path="*" element={<Error404 />}></Route>
+         </Routes>
       </div>
-      <Routes>
-        <Route path="/" element={<Form login={login} />}></Route>
-        <Route
-          path="/home"
-          element={<Cards characters={characters} onClose={onClose} />}
-        ></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/detail/:detailId" element={<Detail />}></Route>
-        <Route
-          path="/favorites"
-          element={<Favorites characters={characters} onClose={onClose} />}
-        ></Route>
-        <Route path="/portfolio" element={<Portfolio />}></Route>
-
-        <Route path="*" element={<Error404 />}></Route>
-      </Routes>
-    </div>
-  );
+   );
 }
 
 export default App;

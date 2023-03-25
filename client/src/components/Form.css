@@ -1,40 +1,46 @@
+.container {
+   max-width: 1200px;
+   margin: auto;
+   border: 1px solid white;
+}
+
+.divPage {
+   background-color: aliceblue;
+   max-width: 400px;
+   margin: auto;
+   border-radius: 25px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   -webkit-border-radius: 25px;
+   -moz-border-radius: 25px;
+   -ms-border-radius: 25px;
+   -o-border-radius: 25px;
+}
+
+.title {
+   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: 500;
+}
+
 .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 300px;
-    background-color: aliceblue;
-    margin: auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    padding: 3%;
-    border-radius: 5px;
-    align-items: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   max-width: 300px;
+   margin: auto;
+   border: 1px solid blue;
 }
 
 .password {
-    margin-top: 30px;
 }
 
 .loginButton {
-    margin-top: 25px;
-    padding: 2%;
-    padding-left: 4%;
-    padding-right: 4%;
-    border-radius: 5px;
-    background-color: #003f5c;
-    border: 1px solid rgb(193, 192, 192);
-    color: white;
-}
-
-.warning {
-    color: rgb(223, 0, 0);
+   background-color: #003f5c;
+   color: white;
 }
 
 .danger {
-    color: rgb(223, 0, 0);
-    font-size: 12px;
+   color: rgb(223, 0, 0);
+   font-size: 12px;
 }
-
-
-
