@@ -1,7 +1,12 @@
 .container {
    max-width: 1200px;
    margin: auto;
-   border: 1px solid white;
+}
+
+@media screen and (max-width: 880px) {
+   .container {
+      width: 90%;
+   }
 }
 
 .divPage {
@@ -17,9 +22,13 @@
    -o-border-radius: 25px;
 }
 
-.title {
-   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-   font-weight: 500;
+.imageTitle {
+   width: 80%;
+}
+
+.imageTitle:hover {
+   transform: scale(1.2);
+   transition: transform 0.3s;
 }
 
 .form {
@@ -29,15 +38,59 @@
    align-items: center;
    max-width: 300px;
    margin: auto;
-   border: 1px solid blue;
+}
+
+.username {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
 .password {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.input {
+   width: 70%;
+   height: 25px;
+   font-size: 18px;
+   border-radius: 5px;
+   border: 1px solid black;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   -ms-border-radius: 5px;
+   -o-border-radius: 5px;
 }
 
 .loginButton {
+   width: 150px;
+   height: 35px;
+   border: 1px solid black;
+   border-radius: 10px;
    background-color: #003f5c;
    color: white;
+   font-size: 20px;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   -ms-border-radius: 10px;
+   -o-border-radius: 10px;
+}
+
+.loginButton:hover {
+   transform: scale(1.2);
+   transition: transform 0.3s;
+   -webkit-transform: scale(1.2);
+   -moz-transform: scale(1.2);
+   -ms-transform: scale(1.2);
+   -o-transform: scale(1.2);
+   -webkit-transition: transform 0.3s;
+   -moz-transition: transform 0.3s;
+   -ms-transition: transform 0.3s;
+   -o-transition: transform 0.3s;
 }
 
 .danger {

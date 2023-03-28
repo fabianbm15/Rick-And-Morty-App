@@ -1,6 +1,7 @@
 import "./Form.css";
 import React, { useState } from "react";
 import validate from "./validate";
+import rickAndMortyImage from "../images/rickandmorty.webp";
 
 export default function Form(props) {
    const [userData, setUserData] = useState({
@@ -34,7 +35,7 @@ export default function Form(props) {
    return (
       <div className="container">
          <div className="divPage">
-            <h1 className="title">¡Bienvenidos!</h1>
+            <img className="imageTitle" src={rickAndMortyImage} alt="No se encuentra la imagen." />
             <form
                className="form"
                onSubmit={(e) => {
@@ -44,27 +45,29 @@ export default function Form(props) {
                <div className="username">
                   <label>Correo: </label>
                   <input
-                     className={errors.username && "warning"}
+                     className={"input"}
                      type="text"
                      name="username"
-                     placeholder="Enter username"
+                     placeholder="Ingrese su correo"
                      onChange={(e) => handleInputChange(e)}
+                     style={errors.username === undefined ? { border: "1px solid black" } : { border: "1px solid red" }}
                   />
                   <p className="danger">{errors.username}</p>
                </div>
                <div className="password">
                   <label>Password: </label>
                   <input
-                     className={errors.password && "warning"}
+                     className={"input"}
                      type="password"
                      name="password"
-                     placeholder="Enter password"
+                     placeholder="Ingrese su contraseña"
                      onChange={(e) => handleInputChange(e)}
+                     style={errors.password === undefined ? { border: "1px solid black" } : { border: "1px solid red" }}
                   />
                   <p className="danger">{errors.password}</p>
                </div>
                <button className="loginButton" type="submit">
-                  Log In
+                  Iniciar Sesión
                </button>
             </form>
             <div>

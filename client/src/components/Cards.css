@@ -1,5 +1,43 @@
+.container {
+   max-width: 1200px;
+   margin: auto;
+}
+
 .cards {
-    display: grid;
-    margin-top: 20px;
-    grid-template-columns: repeat(4, 1fr);
+   display: grid;
+   margin-top: 40px;
+   grid-template-columns: repeat(4, 1fr);
+}
+
+.emptyCharacter {
+   margin: auto;
+   margin-top: 40px;
+   max-width: 400px;
+   padding: 10px;
+   border-radius: 10px;
+   background-color: rgb(255, 255, 255);
+   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+   font-size: 20px;
+}
+
+@media screen and (max-width: 1050px) {
+   .cards {
+      grid-template-columns: repeat(3, 1fr);
+   }
+}
+
+@media screen and (max-width: 850px) {
+   .cards {
+      margin-top: -40px;
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .emptyCharacter {
+      margin-top: -40px;
+   }
+}
+
+@media screen and (max-width: 550px) {
+   .cards {
+      grid-template-columns: repeat(1, 1fr);
+   }
 }

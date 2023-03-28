@@ -1,18 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const {
-  getCharacterId,
-  getDetailId,
-  getFav,
-  postFav,
-  deleteFavId,
-} = require("./../controllers/index");
+const { getCharacterId, getDetailId, getFav, postFav, deleteFavId, getChar, postChar, deleteCharId } = require("./../controllers/index");
 
 router.get("/character/:id", getCharacterId);
 router.get("/detail/:detailId", getDetailId);
 router.get("/fav/", getFav);
-router.post("/fav", postFav);
+router.post("/fav/", postFav);
 router.delete("/fav/:id", deleteFavId);
+router.get("/char/", getChar);
+router.post("/char/", postChar);
+router.delete("/char/:id", deleteCharId);
 
 module.exports = router;
 
