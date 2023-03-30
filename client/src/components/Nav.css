@@ -97,7 +97,12 @@
       justify-content: space-around;
    }
    .botonLogOut {
-      width: 120px;
-      font-size: 17px;
+      width: 150px;
+   }
+   .boton {
+      width: 150px;
+   }
+   .barraBusqueda {
+      width: 150px;
    }
 }
