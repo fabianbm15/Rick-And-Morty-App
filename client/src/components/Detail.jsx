@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+const BACK = process.env.REACT_APP_BACK;
 
 export default function Detail() {
    const { detailId } = useParams();
@@ -15,7 +16,7 @@ export default function Detail() {
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const response = await axios(`http://localhost:3001/rickandmorty/detail/${detailId}`);
+            const response = await axios(`${BACK}/rickandmorty/detail/${detailId}`);
             const char = response.data;
             if (char.name) {
                setCharacter(char);

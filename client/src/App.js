@@ -19,8 +19,9 @@ function App() {
 
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
-   const username = "33b@soyhenry.com"; // process.env.REACT_APP_USERNAME;
-   const password = "@Model101"; //process.env.REACT_APP_PASSWORD;
+   const username = process.env.REACT_APP_USERNAME;
+   const password = process.env.REACT_APP_PASSWORD;
+   const BACK = process.env.REACT_APP_BACK;
 
    function login(userData) {
       if (userData.password === password && userData.username === username) {
@@ -37,7 +38,7 @@ function App() {
    }
 
    async function onSearch(character) {
-      const response = await axios(`http://localhost:3001/rickandmorty/character/${character}`);
+      const response = await axios(`${BACK}/rickandmorty/character/${character}`);
       const data = response.data;
       if (data.name) {
          let exist = characters.find((e) => e.id === data.id);

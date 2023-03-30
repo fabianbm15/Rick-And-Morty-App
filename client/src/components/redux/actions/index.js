@@ -1,24 +1,11 @@
 import { ADD_CHARACTERS, ADD_FAVORITES, DELETE_CHARACTERS, DELETE_FAVORITES, FILTER, ORDER, RESET } from "./types";
 
 import axios from "axios";
-
+const BACK = process.env.REACT_APP_BACK;
 export const addFavorite = function (ch) {
-   /*
-  return function (dispatch) {
-    axios
-      .post(`http://localhost:3001/rickandmorty/fav`, ch)
-      .then((v) => v.data)
-      .then((d) => {
-        dispatch({
-          type: ADD_FAVORITES,
-          payload: d,
-        });
-      });
-  };
-  */
    return async function (dispatch) {
       try {
-         const response = await axios.post(`http://localhost:3001/rickandmorty/fav`, ch);
+         const response = await axios.post(`${BACK}/rickandmorty/fav`, ch);
          const data = response.data;
 
          dispatch({
@@ -32,22 +19,9 @@ export const addFavorite = function (ch) {
 };
 
 export const deleteFavorite = function (id) {
-   /*
-  return function (dispatch) {
-    axios
-      .delete(`http://localhost:3001/rickandmorty/fav/${id}`)
-      .then((v) => v.data)
-      .then((d) => {
-        dispatch({
-          type: DELETE_FAVORITES,
-          payload: id,
-        });
-      });
-  };
-  */
    return async function (dispatch) {
       try {
-         await axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`);
+         await axios.delete(`${BACK}/rickandmorty/fav/${id}`);
          dispatch({
             type: DELETE_FAVORITES,
             payload: id,
@@ -81,7 +55,7 @@ export const reset = function () {
 export const addCharacter = function (ch) {
    return async function (dispatch) {
       try {
-         const response = await axios.post(`http://localhost:3001/rickandmorty/char`, ch);
+         const response = await axios.post(`${BACK}/rickandmorty/char`, ch);
          const data = response.data;
 
          dispatch({
@@ -97,7 +71,7 @@ export const addCharacter = function (ch) {
 export const deleteCharacter = function (id) {
    return async function (dispatch) {
       try {
-         await axios.delete(`http://localhost:3001/rickandmorty/char/${id}`);
+         await axios.delete(`${BACK}/rickandmorty/char/${id}`);
          dispatch({
             type: DELETE_CHARACTERS,
             payload: id,
