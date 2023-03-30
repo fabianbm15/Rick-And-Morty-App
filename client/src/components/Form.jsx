@@ -50,7 +50,7 @@ export default function Form(props) {
                      name="username"
                      placeholder="Ingrese su correo"
                      onChange={(e) => handleInputChange(e)}
-                     style={errors.username === undefined ? { border: "1px solid black" } : { border: "1px solid red" }}
+                     style={errors.username === undefined || errors.username === "" ? { border: "1px solid black" } : { border: "1px solid red" }}
                   />
                   <p className="danger">{errors.username}</p>
                </div>
@@ -62,7 +62,7 @@ export default function Form(props) {
                      name="password"
                      placeholder="Ingrese su contraseña"
                      onChange={(e) => handleInputChange(e)}
-                     style={errors.password === undefined ? { border: "1px solid black" } : { border: "1px solid red" }}
+                     style={errors.password === undefined || errors.password === "" ? { border: "1px solid black" } : { border: "1px solid red" }}
                   />
                   <p className="danger">{errors.password}</p>
                </div>
